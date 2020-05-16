@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tugasapi/PostMethod.dart';
 
 import 'KeyModel.dart';
 import 'ModelPostResult.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(My2ndApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'GET API APPS'),
+      home: MyHomePage(title: 'GET Method API APPS'),
     );
   }
 }
@@ -58,15 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ],
             ),
-            Text((user != null)
-                ? "ID : "+ user.id
-                : "Tidak ada Data "),
-            Text((user != null)
-                ? "Nama : "+ user.name
-                : "Tidak ada Data "),
-            Text((user != null)
-                ? "Email : "+ user.email
-                : "Tidak ada Data "),
+            Text((user != null) ? "ID : " + user.id : "Tidak ada Data "),
+            Text((user != null) ? "Nama : " + user.name : "Tidak ada Data "),
+            Text((user != null) ? "Email : " + user.email : "Tidak ada Data "),
             TextField(
               textAlign: TextAlign.center,
               decoration: InputDecoration(
@@ -83,8 +78,63 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
               child: Text("GET"),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return My2ndApp();
+                    }));
+                  },
+                  child: Text("POST Method"),
+                ),
+              ],
+            ),
+/*            Row(
+              children: <Widget>[
+                Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text((postResult != null)
+                          ? postResult.id +
+                          " | " +
+                          postResult.name +
+                          " | " +
+                          postResult.created
+                          : "Tidak ada Data "),
+                      RaisedButton(
+                        onPressed: () {
+                          PostResult.connectToAPI("Dodot", "Tech").then((value) {
+                            postResult = value;
+                            setState(() {});
+                          });
+                        },
+                        child: Text("POST"),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RaisedButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(builder: (context) {
+                                    return MyApp();
+                                  }));
+                            },
+                            child: Text("GET Method"),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             )
-          ],
+*/          ],
         ),
       ),
     );
