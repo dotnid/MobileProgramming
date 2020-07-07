@@ -3,7 +3,7 @@ import 'package:tugasapi/PostMethod.dart';
 import 'package:tugasapi/main.dart';
 
 import 'DeleteMethod.dart';
-import 'ModelPostResult.dart';
+import 'ModelPut.dart';
 
 class My3ndApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -30,7 +30,7 @@ class PostMethod extends StatefulWidget {
 }
 
 class _PostMethod extends State<PostMethod> {
-  PostResult postResult = null;
+  PutResult putResult = null;
   @override
   Widget build(BuildContext context) {
 
@@ -43,17 +43,17 @@ class _PostMethod extends State<PostMethod> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text((postResult != null)
-                  ? postResult.id +
+              Text((putResult != null)
+                  ? putResult.id +
                   " | " +
-                  postResult.name +
+                  putResult.name +
                   " | " +
-                  postResult.created
+                  putResult.job
                   : "Tidak ada Data "),
               RaisedButton(
                 onPressed: () {
-                  PostResult.connectToAPI("Dodot Nanda", "Tech").then((value) {
-                    postResult = value;
+                  PutResult.connectToAPI("Dodot Nanda", "Tech").then((value) {
+                    putResult = value;
                     setState(() {});
                   });
                 },

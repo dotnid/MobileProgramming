@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tugasapi/PutMethod.dart';
 import 'package:tugasapi/main.dart';
 
-import 'ModelPostResult.dart';
+import 'ModelDelete.dart';
 import 'PostMethod.dart';
+
 
 class My4ndApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -15,13 +16,13 @@ class My4ndApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: PostMethod(title: 'POST Method API APPS'),
+      home: DeleteMethod(title: 'POST Method API APPS'),
     );
   }
 }
 
-class PostMethod extends StatefulWidget {
-  PostMethod({Key key, this.title}) : super(key: key);
+class DeleteMethod extends StatefulWidget {
+  DeleteMethod({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -29,8 +30,14 @@ class PostMethod extends StatefulWidget {
   _PostMethod createState() => _PostMethod();
 }
 
-class _PostMethod extends State<PostMethod> {
-  PostResult postResult = null;
+class _PostMethod extends State<DeleteMethod> {
+
+  DeleteSome deleteSome = null;
+  Map<String, String> headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+    'Authorization': '<Your token>'
+  };
   @override
   Widget build(BuildContext context) {
 
@@ -43,19 +50,15 @@ class _PostMethod extends State<PostMethod> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text((postResult != null)
-                  ? postResult.id +
-                  " | " +
-                  postResult.name +
-                  " | " +
-                  postResult.created
+              Text((deleteSome != null)
+                  ? deleteSome.id
                   : "Tidak ada Data "),
+
               RaisedButton(
                 onPressed: () {
-                  PostResult.connectToAPI("Dodot Nanda", "Tech").then((value) {
-                    postResult = value;
+                  DeleteSome.deletes("1", headers);
                     setState(() {});
-                  });
+
                 },
                 child: Text("DELETE"),
               ),
