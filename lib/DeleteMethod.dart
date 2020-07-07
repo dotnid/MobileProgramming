@@ -52,12 +52,14 @@ class _PostMethod extends State<DeleteMethod> {
             children: <Widget>[
               Text((deleteSome != null)
                   ? deleteSome.id
-                  : "Tidak ada Data "),
+                  : "Method Delete https://reqres.in/ response 204"),
 
               RaisedButton(
                 onPressed: () {
-                  DeleteSome.deletes("1", headers);
+                  DeleteSome.deletes("Dodot Nanda", headers).then((value) {
+                    deleteSome = value;
                     setState(() {});
+                  });
 
                 },
                 child: Text("DELETE"),

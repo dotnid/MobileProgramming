@@ -7,16 +7,19 @@ class DeleteSome{
   String name;
   String job;
   String created;
+  Map<String, String> headers ;
 
   DeleteSome({
-    this.id, this.name, this.job, this.created
+    this.id, this.name, this.job, this.created, this.headers
   });
+
   factory DeleteSome.deleteSome(Map<String, dynamic> object){
     return DeleteSome(
         id:  object['id'],
         name: object['name'],
         job: object['job'],
-        created: object['createdAt']
+        created: object['createdAt'],
+        headers: object['header']
     );
   }
   static Future<DeleteSome> deletes(String id, Map<String, String> headers) async{

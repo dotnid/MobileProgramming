@@ -44,8 +44,7 @@ class _PostMethod extends State<PostMethod> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text((putResult != null)
-                  ? putResult.id +
-                  " | " +
+                  ? 
                   putResult.name +
                   " | " +
                   putResult.job
