@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tugasapi/PutMethod.dart';
 import 'package:tugasapi/main.dart';
 
 import 'ModelPostResult.dart';
+import 'PostMethod.dart';
 
 class My4ndApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -55,7 +57,7 @@ class _PostMethod extends State<PostMethod> {
                     setState(() {});
                   });
                 },
-                child: Text("POST"),
+                child: Text("DELETE"),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -68,6 +70,34 @@ class _PostMethod extends State<PostMethod> {
                           }));
                     },
                     child: Text("GET Method"),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      RaisedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) {
+                                return My2ndApp();
+                              }));
+                        },
+                        child: Text("POST Method"),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RaisedButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(builder: (context) {
+                                    return My3ndApp();
+                                  }));
+                            },
+                            child: Text("PUT Method"),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),

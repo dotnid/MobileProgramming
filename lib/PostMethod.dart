@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tugasapi/main.dart';
 
+import 'DeleteMethod.dart';
 import 'ModelPostResult.dart';
+import 'PutMethod.dart';
 
 class My2ndApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -68,6 +70,34 @@ class _PostMethod extends State<PostMethod> {
                       }));
                     },
                     child: Text("GET Method"),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      RaisedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) {
+                                return My3ndApp();
+                              }));
+                        },
+                        child: Text("PUT Method"),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RaisedButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(builder: (context) {
+                                    return My4ndApp();
+                                  }));
+                            },
+                            child: Text("DELETE Method"),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),
