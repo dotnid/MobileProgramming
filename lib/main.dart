@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tugasapi/PostMethod.dart';
 
+import 'DeleteMethod.dart';
 import 'KeyModel.dart';
 import 'ModelPostResult.dart';
+import 'PutMethod.dart';
 
 void main() => runApp(My2ndApp());
 
@@ -86,10 +88,38 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) {
-                      return My2ndApp();
-                    }));
+                          return My2ndApp();
+                        }));
                   },
                   child: Text("POST Method"),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    RaisedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                              return My3ndApp();
+                            }));
+                      },
+                      child: Text("PUT Method"),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        RaisedButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(builder: (context) {
+                                  return My4ndApp();
+                                }));
+                          },
+                          child: Text("DELETE Method"),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),
